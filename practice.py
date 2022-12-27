@@ -55,18 +55,18 @@
 # print('오프라인 스터디 모임 날짜는 매월',str(off_date)+'일로 선정되었습니다')
 python = 'Python is Amazing'
 
-print(python.lower())  # 소문자로 변환
-print(python.upper())  # 대문자로 변환
-print(python[0].isupper())  # 대문자인가를 확인. 결과는 불린
-print(len(python))  
-print(python.replace("Python", "Java")) # 대체
-index = python.index("n")
-print(index)
-index = python.index("n", index+1) # 검색 시작위치를 지정해줄 수도 있다
-print(index)
-print(python.find('n'))
+# print(python.lower())  # 소문자로 변환
+# print(python.upper())  # 대문자로 변환
+# print(python[0].isupper())  # 대문자인가를 확인. 결과는 불린
+# print(len(python))  
+# print(python.replace("Python", "Java")) # 대체
+# index = python.index("n")
+# print(index)
+# index = python.index("n", index+1) # 검색 시작위치를 지정해줄 수도 있다
+# print(index)
+# print(python.find('n'))
 
-print(python.find('Java'))  # .find()에서 원하는 값이 없을때는 -1을 출력
-# print(python.index('Java'))  # .index()에서는 원하는 값이 없으면 에러 발생
+# print(python.find('Java'))  # .find()에서 원하는 값이 없을때는 -1을 출력
+# # print(python.index('Java'))  # .index()에서는 원하는 값이 없으면 에러 발생
 
-print(python.count('n'))
+# print(python.count('n'))
