@@ -53,7 +53,7 @@
 # Quiz #2
 # off_date = randint(4,28)
 # print('오프라인 스터디 모임 날짜는 매월',str(off_date)+'일로 선정되었습니다')
-python = 'Python is Amazing'
+# python = 'Python is Amazing'
 
 # print(python.lower())  # 소문자로 변환
 # print(python.upper())  # 대문자로 변환
@@ -70,3 +70,29 @@ python = 'Python is Amazing'
 # # print(python.index('Java'))  # .index()에서는 원하는 값이 없으면 에러 발생
 
 # print(python.count('n'))
+
+# [문자 포맷 방법]
+# (1)
+# d : 정수
+# s : 문자열(str) / 종류 상관없이 다 출력해주기도 함
+# c : character(한 글자만 받겠다)
+
+# (2)
+# '{}'format()
+# {}안에 숫자를 넣어줘서 특정 순서에 있는 항목을 출력해줄 수도 있다.
+# {} 안에 변수를 넣어줘서 출력해줄 수도 있다. / '{age}'.format(age=20)
+
+# (3)
+# 미리 선언한 변수를 넣어주기
+# age = 20
+# print(f'{age})
+
+# 연습
+print('오늘 아침 %s시에 일어났습니다' %7)
+print('오늘 아침 %d시에 일어났습니다' %7)
+print('오늘 아침 {}시에 일어났습니다'.format(7))
+print('오늘 아침 {}시 {}분에 일어났습니다'.format(7,30))
+print('오늘 아침 {1}시 {0}분에 일어났습니다'.format(7,30))
+print('오늘 아침 {hour}시 {minute}분에 일어났습니다'.format(hour=7,minute=30))
+hour, minute = 7,30
+print(f'오늘 아침 {hour}시 {minute}분에 일어났습니다')
