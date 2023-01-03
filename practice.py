@@ -87,12 +87,136 @@
 # age = 20
 # print(f'{age})
 
-# 연습
-print('오늘 아침 %s시에 일어났습니다' %7)
-print('오늘 아침 %d시에 일어났습니다' %7)
-print('오늘 아침 {}시에 일어났습니다'.format(7))
-print('오늘 아침 {}시 {}분에 일어났습니다'.format(7,30))
-print('오늘 아침 {1}시 {0}분에 일어났습니다'.format(7,30))
-print('오늘 아침 {hour}시 {minute}분에 일어났습니다'.format(hour=7,minute=30))
-hour, minute = 7,30
-print(f'오늘 아침 {hour}시 {minute}분에 일어났습니다')
+# # 연습
+# print('오늘 아침 %s시에 일어났습니다' %7)
+# print('오늘 아침 %d시에 일어났습니다' %7)
+# print('오늘 아침 {}시에 일어났습니다'.format(7))
+# print('오늘 아침 {}시 {}분에 일어났습니다'.format(7,30))
+# print('오늘 아침 {1}시 {0}분에 일어났습니다'.format(7,30))
+# print('오늘 아침 {hour}시 {minute}분에 일어났습니다'.format(hour=7,minute=30))
+# hour, minute = 7,30
+# print(f'오늘 아침 {hour}시 {minute}분에 일어났습니다')
+
+
+# [탈출 문자; escape]
+# \n : 줄바꿈
+# \" : "를 출력
+# \\ : \를 출력
+# \r : 커서를 맨 앞으로 이동해준다.(덮어쓰기)
+# \b : backspace
+# \t : tab
+
+# print('엔\n터')
+# print('\'따옴표 출력\'')
+# print('\\ *^^* /')
+# print('black pink\r1234567890')
+# print('backk\b spacee\b') # 두번은 안되나...?
+# print('t\ta\tb')
+
+# quiz3
+
+# Rule_1 : slicing보다 replace로 하는 것이 다른 주소에도 활용할 수 있고 좋을 것 같다
+# Rule_2 : replace보다는 index로 .이 있는 부분을 찾아서 그 지점까지 slicing
+
+
+# url = "http://daum.net"
+# rule1 = url.replace('http://','')
+# print(rule1)
+
+
+# rule2 = rule1[:rule1.index('.')]
+# print(rule2)
+
+# rule3 = rule2[:3]+str(len(rule2))+str(rule2.count('e'))+'!'
+# print(rule3)
+
+
+# print('생성된 비밀번호는 {}입니다'.format(rule3))
+# print(f'site \'{url}\' generated code is {rule3}')
+# print('{}의 비밀번호는 {}입니다'.format(url,rule3))
+
+# # [List] : 순서를 가지는 객체의 집합
+
+# sub = ['kim', 'lee', 'park']
+# print(sub)
+
+# # 리스트에 추가하기
+# sub.append('choi')
+# print(sub)
+
+# # 중간에 추가하기
+# sub.insert(2, 'kang')
+# print(sub)
+
+# # 뒤 부터 하나씩 빼기
+# print(sub.pop())
+# print(sub)
+
+# # 값의 개수 구하기
+# sub.append('kim')
+# print(sub.count('kim'))
+
+# # 정렬하기
+# sub.append('ann')
+# print(sub)
+# sub.sort()
+# print(sub)
+
+# # 정렬 순서 뒤집기
+# sub.reverse()
+# print(sub)
+
+# # 리스트 속 내용 다 지우기
+# sub.clear()
+# print(sub)
+
+# # 리스트 합치기
+# mix = [True, 1, 'three', '한글']
+# print(mix)
+# sub.extend(mix)
+# print(sub)
+
+
+# # [Dictionary]
+# my_dict={'a-1':'a', 'b-2':'b', 'c-3':'c'}
+
+# print(my_dict.get('a'))
+# # my_dict[]로 값을 출력하려할때는 값이 없을때 에러가 발생하고 프로그램이 끝나는 반면
+# # my_dict.get()로 값을 출력하게 되면 값이 없더라도 'None'이 출력되고 다음 코드가 진행된다.
+
+# print(my_dict.get('a', 'a 값이 없음'))
+# # 출력 요청한 값이 없을 때 뒤 항목을 출력해준다
+
+# print('a-1' in my_dict)
+# print(4 in my_dict)
+# # 'value' in my_dict : 값이 있으면 True, 없으면 False 출력
+
+
+# # 딕셔너리 추가하거나 업데이트
+# print(my_dict)
+# my_dict['d-4'] = '새로운 값'
+# my_dict['a-1'] = '업데이트된 값'
+# print(my_dict)
+
+# # 딕셔너리에서 값 제거하기
+# del my_dict['a-1']
+# print(my_dict)
+
+# # 키들만, 값들만 출력
+# print(my_dict.keys())
+# print(my_dict.values())
+
+# # ky, value 쌍으로 출력
+# print(my_dict.items())
+
+# # dictionary 초기화
+# my_dict.clear()
+# print(my_dict)
+
+# [tuple] : 리스트와 달리 변경이 안된다. 속도가 빠르다
+
+# [set] : 집합, 중복이 안되고 순서가 없다.
+
+
+
+
