@@ -71,19 +71,19 @@
 
 # print(python.count('n'))
 
-# [문자 포맷 방법]
-# (1)
-# d : 정수
-# s : 문자열(str) / 종류 상관없이 다 출력해주기도 함
-# c : character(한 글자만 받겠다)
+# # [문자 포맷 방법]
+# # (1)
+# # d : 정수
+# # s : 문자열(str) / 종류 상관없이 다 출력해주기도 함
+# # c : character(한 글자만 받겠다)
 
-# (2)
-# '{}'format()
-# {}안에 숫자를 넣어줘서 특정 순서에 있는 항목을 출력해줄 수도 있다.
-# {} 안에 변수를 넣어줘서 출력해줄 수도 있다. / '{age}'.format(age=20)
+# # (2)
+# # '{}'format()
+# # {}안에 숫자를 넣어줘서 특정 순서에 있는 항목을 출력해줄 수도 있다.
+# # {} 안에 변수를 넣어줘서 출력해줄 수도 있다. / '{age}'.format(age=20)
 
-# (3)
-# 미리 선언한 변수를 넣어주기
+# # (3)
+# # 미리 선언한 변수를 넣어주기
 # age = 20
 # print(f'{age})
 
@@ -98,13 +98,13 @@
 # print(f'오늘 아침 {hour}시 {minute}분에 일어났습니다')
 
 
-# [탈출 문자; escape]
-# \n : 줄바꿈
-# \" : "를 출력
-# \\ : \를 출력
-# \r : 커서를 맨 앞으로 이동해준다.(덮어쓰기)
-# \b : backspace
-# \t : tab
+# # [탈출 문자; escape]
+# # \n : 줄바꿈
+# # \" : "를 출력
+# # \\ : \를 출력
+# # \r : 커서를 맨 앞으로 이동해준다.(덮어쓰기)
+# # \b : backspace
+# # \t : tab
 
 # print('엔\n터')
 # print('\'따옴표 출력\'')
@@ -113,10 +113,10 @@
 # print('backk\b spacee\b') # 두번은 안되나...?
 # print('t\ta\tb')
 
-# quiz3
+# # quiz3
 
-# Rule_1 : slicing보다 replace로 하는 것이 다른 주소에도 활용할 수 있고 좋을 것 같다
-# Rule_2 : replace보다는 index로 .이 있는 부분을 찾아서 그 지점까지 slicing
+# # Rule_1 : slicing보다 replace로 하는 것이 다른 주소에도 활용할 수 있고 좋을 것 같다
+# # Rule_2 : replace보다는 index로 .이 있는 부분을 찾아서 그 지점까지 slicing
 
 
 # url = "http://daum.net"
@@ -285,3 +285,33 @@
 #     print(f'대기번호 : {i}')
 
 # [반복문, while] : 특정 조건이 만족할 때까지 반복
+# 무한루프에 빠졌을 때 ctrl + C 누르면 빠져나올 수 있다.
+
+# 5번 불렀는데 찾아가지 않으면 커피를 버린다
+customer = '박충호'
+i = 5
+while i >= 1:
+    i -=1
+    print('{0}고객님 커피 찾아가세요~ (호출 횟수 {1}번 남았습니다)'.format(customer, i))
+    if i ==0:
+        print('커피 폐기')
+
+# 부르고 이름 확인하고 이름이 맞을 때까지 부른다
+
+customer = '박충호'
+person = 'unknown'
+
+while person != customer:
+    print('{}고객님 커피 찾아가세요'.format(customer))
+    person = input('고객 성함 입력 ')
+    if person != customer:
+        print('{}고객님이 아닙니다\n'.format(customer))
+print('{}고개님 커피 수령 완료'.format(customer))
+
+
+# [continue & break]
+
+
+
+
+
