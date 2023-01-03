@@ -213,10 +213,75 @@
 # my_dict.clear()
 # print(my_dict)
 
-# [tuple] : 리스트와 달리 변경이 안된다. 속도가 빠르다
+# # [tuple] : 리스트와 달리 변경이 안된다. 속도가 빠르다
 
-# [set] : 집합, 중복이 안되고 순서가 없다.
+# # [set] : 집합, 중복이 안되고 순서가 없다.
+
+# a = ['박', '충', '호', '호', '영', '범']
+# b = ['강', '대', '음', '최', '호', '진']
+
+# c = {'박', '충', '호', '호', '영', '범'}
+# d = {'강', '대', '음', '최', '호', '진'}
+# e = ('이', '명', '렬', '박', '다', '한')
+
+# # 교집합 만들기
+# print(c&d)    # set 끼리만 &로 교집합할 수 있는 반면
+# print(c.intersection(e))   # set.intersection()의 경우 ()에 list,tuple,set 올 수 있다.
+
+# # 합집합
+# print(c|d)
+# print(c.union(d))    
+# print(c.union(e))    
+
+# # 차집합
+# print(c-d)
+# print(c.difference(e))
+
+# c.add('진')
+# print(c)
+
+# c.remove('진')
+# print(c)
+
+# # .add, .remove, .intersection, .union, .difference 는 set에서만 사용가능
+
+# # quiz4
+# from random import *
+# id=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+# chicken = sample(id,1)  # 치킨 당첨자 1명 무작위 추첨
+# snd_id = list(set(id) - set(chicken))  # 중복을 막기 위해 치킨 수령자를 id list에서 제거
+# coffee = sample(id,3)  # 커피 당첨자 3명 무작위 추첨
+
+# print(f''' -- 당첨자 발표 -- \n치킨 당첨자 : {chicken[0]}\n커피당첨자 : {coffee}\n -- 축하합니다 -- ''')
 
 
+# # 나도 코딩 답지
+# from random import *
+# user = list(range(1,21))  # [1:21) 숫자를 생성하여 ilst로 user에 저장
+# shuffle(user) # list 섞어주기
+# winners = sample(user, 4)  # 해당 리스트에서 네명을 무작위로 뽑는다.
+
+# print('\n -- 당첨자 발표 -- ')
+# print('치킨 당첨자 : {}'.format(winners[0]))
+# print('커피당첨자 : {}'.format(winners[1:]))
+# print(' -- 축하합니다 -- ')
+
+# # Q. .sample 에서 무작위로 추출할텐데 앞에서 굳이 shuufle()해줄 필요가 있었나?
 
 
+# # [분기]
+# time = int(input('what time is it now? (0000) '))
+# if time > 1200 & time < 1330:
+#     print('it\'s lunch time')
+# elif time < 900:
+#     print('you dont even start working')
+# elif time > 1800 :
+#     print('it\'s time to go home')
+# else:
+#     print('work hard!')
+
+# # [반복문, for]
+# for i in range(1,21):
+#     print(f'대기번호 : {i}')
+
+# [반복문, while] : 특정 조건이 만족할 때까지 반복
