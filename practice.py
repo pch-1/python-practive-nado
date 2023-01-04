@@ -287,31 +287,45 @@
 # [반복문, while] : 특정 조건이 만족할 때까지 반복
 # 무한루프에 빠졌을 때 ctrl + C 누르면 빠져나올 수 있다.
 
-# 5번 불렀는데 찾아가지 않으면 커피를 버린다
-customer = '박충호'
-i = 5
-while i >= 1:
-    i -=1
-    print('{0}고객님 커피 찾아가세요~ (호출 횟수 {1}번 남았습니다)'.format(customer, i))
-    if i ==0:
-        print('커피 폐기')
+# # 5번 불렀는데 찾아가지 않으면 커피를 버린다
+# customer = '박충호'
+# i = 5
+# while i >= 1:
+#     i -=1
+#     print('{0}고객님 커피 찾아가세요~ (호출 횟수 {1}번 남았습니다)'.format(customer, i))
+#     if i ==0:
+#         print('커피 폐기')
 
-# 부르고 이름 확인하고 이름이 맞을 때까지 부른다
+# # 부르고 이름 확인하고 이름이 맞을 때까지 부른다
 
-customer = '박충호'
-person = 'unknown'
+# customer = '박충호'
+# person = 'unknown'
 
-while person != customer:
-    print('{}고객님 커피 찾아가세요'.format(customer))
-    person = input('고객 성함 입력 ')
-    if person != customer:
-        print('{}고객님이 아닙니다\n'.format(customer))
-print('{}고개님 커피 수령 완료'.format(customer))
-
-
-# [continue & break]
+# while person != customer:
+#     print('{}고객님 커피 찾아가세요'.format(customer))
+#     person = input('고객 성함 입력 ')
+#     if person != customer:
+#         print('{}고객님이 아닙니다\n'.format(customer))
+# print('{}고개님 커피 수령 완료'.format(customer))
 
 
+# # [continue & break] 반복문 내에서 사용
+# # continue : 조건이 충족되면 아래 코드로 내려가지 않고 다시 위의 반복문으로 돌아간다. 
+# # break : 반복문을 깨고 나온다
+
+# absent = [2,9]
+# no_book = [6]
+
+# for student in range(1,11):
+#     if student in absent:
+#         continue
+#     elif student in no_book:
+#         print('폐강')
+#         break
+#     else:
+#         print(student)
+
+# [for문 한 줄 입력!]
 
 
 
