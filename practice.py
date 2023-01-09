@@ -453,12 +453,19 @@
 Quiz 6
 표준 체중을 구하는 프로그램을 작성하시오
 '''
+height = float(input('키를 입력 하세요(cm) :'))
+gender = input('성별을 입력하세요(남자/여자) : ')
 
-def std_weight(height, gender):
-    if gender == 'man':
-        return(height*height*22)
+def std_weight(height=height/100, gender=gender):
+    if gender == '남자':
+        return height*height*22
+    elif gender == '여자':
+        return height*height*21
     else:
-        return(height*height*21)
-std_weight(1.84, 'man')
+        return('Error')
+
+weight = std_weight()
+
+print('키 {}cm {}의 표준 체중은 {:0.2f}kg 입니다.'.format(height, gender, weight))
 
 
