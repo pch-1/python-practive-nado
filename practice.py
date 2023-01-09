@@ -420,7 +420,8 @@
 
 # go_home('sun', hour=13, minute=11)
 
-# # 가변인자 : 개수를 확답하기 어려울 때 사용한다?
+
+# # [가변인자] : 개수를 확답하기 어려울 때 사용한다?
 # def profile(name, age, *language):
 #     print('이름 :\t{}\n나이 :\t{}\n언어 :\t'.format(name, age), end=" ")
 #     for lang in language:
@@ -430,8 +431,8 @@
 # profile('chungho', '27', 'korean', 'english', 'python', 'premiere')
 
 
-# # 지역변수 : 함수 호출 시에만 사용되고 사라진다
-# # 전역변수 : 어느 곳에서든 호출 할 수 있다
+# # [지역변수] : 함수 호출 시에만 사용되고 사라진다
+# # [전역변수] : 어느 곳에서든 호출 할 수 있다
 # # 전역변수는 잘 활용 안하고 인수로 받아서 활용하는 것을 추천
 
 # balance = 1000     # 잔액
@@ -449,23 +450,60 @@
 
 
 
-'''
-Quiz 6
-표준 체중을 구하는 프로그램을 작성하시오
-'''
-height = float(input('키를 입력 하세요(cm) :'))
-gender = input('성별을 입력하세요(남자/여자) : ')
+# '''
+# Quiz 6
+# 표준 체중을 구하는 프로그램을 작성하시오
+# '''
+# height = float(input('키를 입력 하세요(cm) :'))
+# gender = input('성별을 입력하세요(남자/여자) : ')
 
-def std_weight(height=height/100, gender=gender):
-    if gender == '남자':
-        return height*height*22
-    elif gender == '여자':
-        return height*height*21
-    else:
-        return('Error')
+# def std_weight(height=height/100, gender=gender):
+#     if gender == '남자':
+#         return height*height*22
+#     elif gender == '여자':
+#         return height*height*21
+#     else:
+#         return('Error')
 
-weight = std_weight()
+# weight = std_weight()
 
-print('키 {}cm {}의 표준 체중은 {:0.2f}kg 입니다.'.format(height, gender, weight))
+# print('키 {}cm {}의 표준 체중은 {:0.2f}kg 입니다.'.format(height, gender, weight))
 
+
+# # [표준 출력]
+# # sep=''
+# # end=''
+# # .ljust(int) : int 개수의 칸 만큼 공간을 확보한 뒤 왼쪽 정렬
+# # .rjust(int) : int 개수의 칸 만큼 공간을 확보한 뒤 오른 정렬
+# # .zfill(int) : int 개수의 칸 만큼 공간을 확보한 뒤 값이 없으면 0으로 채워준다 ex) 대기 순번표 001
+
+# # [표준 입력]
+# # input('str') : str 출력 후 사용자의 입력을 기다린다. (입력된 값은 모두 str type이 된다)
+
+# print('표준 입출력 무슨 말인지...', '...맥락 잡기가 조금은 어렵다', sep='sep 응용하기', end=' + ')
+# print('다음 강좌는 심지어 클래스네')
+
+# scores = {'python':50, 'C+':0, 'Pr':90}
+# for subject, score in scores.items():
+#     print(subject.ljust(8), str(score).rjust(4), sep=':')
+
+# for num in range(1,21):
+#     print(str(num).zfill(3))
+
+
+# # 학번 제조기
+# # 21600313 -> 2+16+00313
+
+# year = input('year : ')
+# student_dict = {1:'박충호', 2:'이명렬', 3: '이신의'}
+
+# for number, name in student_dict.items():
+#     student_id = year[0] + year[-2:]+str(number).zfill(5)
+#     print('{} {}'.format(name, student_id))
+    
+
+
+# [다양한 출력포맷]
+print(str(500).rjust(10))
+print('{0: >10}'.format(500))
 
