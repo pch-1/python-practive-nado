@@ -503,7 +503,160 @@
     
 
 
-# [다양한 출력포맷]
-print(str(500).rjust(10))
-print('{0: >10}'.format(500))
+# # [다양한 출력포맷]
+# print(str(500).rjust(10))
+# print('{0: >11}'.format(50000))
+# print('{0:,> 11,}'.format(50000))
+# print('{0:_> 11,}'.format(50000))
+# print('{0:^>+30,}'.format(-300000))
+
+
+# [파일 입출력]
+# 'w' : 새로 쓰거나, 덮어쓰기
+# 'a' : append. 이어쓰기
+
+# score_file=open('score.txt', 'w', encoding='utf8')
+# print('과학 = 90', file = score_file)
+# print('코딩 = 10', file = score_file)
+# score_file.close()
+
+# score_file=open('score.txt', 'a', encoding='utf8')
+# score_file.write('코딩 = 100')
+# score_file.write('\n코딩 = 0')
+# score_file.close()
+
+# score_file=open('score.txt', 'r', encoding='utf8')
+# # 한 번에 다 읽기
+# print(score_file.read())
+# score_file.close()
+
+# # 한 줄씩 불러오기
+# print(score_file.readline()) # 줄 별로 읽기 동작 수행. 한 줄 읽고 커서는 다음 줄로 이동
+# print(score_file.readline())
+# print(score_file.readline(), end='') # print로 출력하면 자동으로 줄바꿈이 되기에 줄바꿈이 싫다면 ,end=''를 추가!
+# print(score_file.readline())
+# print(score_file.readline())
+# print(score_file.readline())
+# score_file.close()
+
+# # 몇 줄로 구성되어 있는지 모를 때, 반복문을 통해 한 줄씩 불러오기
+# while True:
+#     line = score_file.readline()
+#     if not line:
+#         break
+#     print(line, end='')
+# score_file.close()
+
+
+# # 리스트에 값을 모두 넣어서 처리할 수도 있다.
+# lines = score_file.readlines() # list 형태
+# for line in lines:
+#     print(line, end='')
+# score_file.close()
+
+
+# # [pickle]
+# import pickle
+# # profile_file = open('profile.pickle', 'wb')  #pickle은 항상 binary형태로 저장해야된다. encoding은 설정하지 않아도 된다.
+# # profile = {'이름':'박명수','취미':'농구','나이':30}
+# # print(profile)
+
+# # pickle.dump(profile, profile_file) #profile의 정보를 profile_file에 저장하겠다~
+# # profile_file.close()
+
+# profile_file = open('profile.pickle', 'rb')
+# profile = pickle.load(profile_file)  # profile_file의 정보를 profile에 불러오기
+# print(profile)
+
+# profile_file.close()
+
+
+# # [with] 코드 라인을 줄이고 close해줄 필요가 없다
+# import pickle
+# with open('profile.pickle', 'rb') as profile_file:
+#     print(pickle.load(profile_file))
+
+# with open('study.txt', 'w', encoding='utf8') as study_file:
+#     study_file.write('파일 입출력 지루해')
+
+# with open('study.txt', 'r', encoding='utf8') as p_file:
+#     print(p_file.read())
+
+
+# '''
+# Quiz 7
+# 당신의 회사에서는 매주 1회 작성해야 하는 보고서가 있습니다.
+# 보고서는 항상 아래와 같은 형태로 출력되어야 합니다.
+
+# - X주차 주간보고 -
+# 부서 :
+# 이름 :
+# 업무 요약 :
+
+
+# 1주차부터 50주차까지의 보고서 파일을 만드는 프로그램을 작성하시오.
+# 조건 : 파일명은 '1주차.txt', '2주차.txt', ... 와 같이 만듭니다.
+# '''
+
+# for week in range(1,51):
+#     with open('{}주차.txt'.format(week), 'w', encoding='utf8') as week_file:
+#         week_file.write('- {}주차 주간보고 -\n부서 :\n이름 :\n업무 요약 :'.format(week))
+
+
+# [클래스]
+def def_fourCal(first, second):
+    return first + second
+
+c = def_fourCal(3,4)
+d = def_fourCal(7,2)
+
+
+
+class fourCal:
+    def __init__(self, first, second):
+        self.first = first
+        self.second = second 
+    
+    def add(self):
+        result = self.first + self.second
+        return result
+
+    def mul(self):
+        result = self.first * self.second
+        return result
+
+    def sub(self):
+        result = self.first - self.second
+        return result
+
+    def div(self):
+        result = self.first / self.second
+        return result
+
+
+class MorefourCal(fourCal):
+    def pow(self):
+        result = self.first ** self.second
+        return result
+
+
+class safefourCal(fourCal):
+    def div(self):
+        if self.second == 0:
+            return 0
+        else:
+            return self.first / self.second
+a = safefourCal(4,0)
+
+print(a.div())
+
+
+car =	{
+  "brand": "Ford",
+  "model": "Mustang",
+  "year": 1964
+}
+print(car['model'])
+
+
 
