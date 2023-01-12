@@ -603,217 +603,235 @@
 #         week_file.write('- {}주차 주간보고 -\n부서 :\n이름 :\n업무 요약 :'.format(week))
 
 
-# [클래스]
-def def_fourCal(first, second):
-    return first + second
+# # [클래스]
+# def def_fourCal(first, second):
+#     return first + second
 
-c = def_fourCal(3,4)
-d = def_fourCal(7,2)
+# c = def_fourCal(3,4)
+# d = def_fourCal(7,2)
 
 
 
-class fourCal:
-    def __init__(self, first, second):
-        self.first = first
-        self.second = second 
+# class fourCal:
+#     def __init__(self, first, second):
+#         self.first = first
+#         self.second = second 
     
-    def add(self):
-        result = self.first + self.second
-        return result
+#     def add(self):
+#         result = self.first + self.second
+#         return result
 
-    def mul(self):
-        result = self.first * self.second
-        return result
+#     def mul(self):
+#         result = self.first * self.second
+#         return result
 
-    def sub(self):
-        result = self.first - self.second
-        return result
+#     def sub(self):
+#         result = self.first - self.second
+#         return result
 
-    def div(self):
-        result = self.first / self.second
-        return result
+#     def div(self):
+#         result = self.first / self.second
+#         return result
 
-# 상속
-class MorefourCal(fourCal):
-    def pow(self):
-        result = self.first ** self.second
-        return result
-
-
-class safefourCal(fourCal):
-    def div(self):
-        if self.second == 0:
-            return 0
-        else:
-            return self.first / self.second
-a = safefourCal(4,0)
+# # 상속
+# class MorefourCal(fourCal):
+#     def pow(self):
+#         result = self.first ** self.second
+#         return result
 
 
-#########################
-
-class Unit:
-    def __init__(self, name, hp, speed):
-        self.name = name
-        self.hp = hp
-        self.speed = speed
-        print('{} 유닛이 생성 되었습니다.'.format(self.name))
-        print('체력은 {}입니다.'.format(self.hp))
+# class safefourCal(fourCal):
+#     def div(self):
+#         if self.second == 0:
+#             return 0
+#         else:
+#             return self.first / self.second
+# a = safefourCal(4,0)
 
 
-    def move(self, location):
-        # print('[지상 유닛이 이동]')
-        print('{} : {}시 방향으로 이동합니다 [속도 {}]'.format(self.name, location, self.speed))
+# #########################
+
+# class Unit:
+#     def __init__(self, name, hp, speed):
+#         self.name = name
+#         self.hp = hp
+#         self.speed = speed
+#         print('{} 유닛이 생성 되었습니다.'.format(self.name))
+#         print('체력은 {}입니다.'.format(self.hp))
+
+
+#     def move(self, location):
+#         # print('[지상 유닛이 이동]')
+#         print('{} : {}시 방향으로 이동합니다 [속도 {}]'.format(self.name, location, self.speed))
    
-    def damaged(self, damage):
-        print('{} : {} 데미지를 입었습니다.'.format(self.name, damage))
-        self.hp-=damage
-        print('{} : 현재 체력은 {}입니다\n'.format(self.name, self.hp))
-        if self.hp <= 0:
-            print('{} : 파괴됩니다\n'.format(self.name))
+#     def damaged(self, damage):
+#         print('{} : {} 데미지를 입었습니다.'.format(self.name, damage))
+#         self.hp-=damage
+#         print('{} : 현재 체력은 {}입니다\n'.format(self.name, self.hp))
+#         if self.hp <= 0:
+#             print('{} : 파괴됩니다\n'.format(self.name))
 
 
-class AttackUnit(Unit):
-    def __init__(self, name, hp, speed, damage):
-        Unit.__init__(self, name, hp, speed) # name, hp는 상속받기 위해
-        self.damage = damage
-        print('데미지은 {}입니다\n'.format(self.damage))
+# class AttackUnit(Unit):
+#     def __init__(self, name, hp, speed, damage):
+#         Unit.__init__(self, name, hp, speed) # name, hp는 상속받기 위해
+#         self.damage = damage
+#         print('데미지은 {}입니다\n'.format(self.damage))
     
 
-    def attack(self, location):
-        print('{} : {}시 방향으로 공격합니다. [공격력 {}]'.format(\
-            self.name, location, self.damage))
+#     def attack(self, location):
+#         print('{} : {}시 방향으로 공격합니다. [공격력 {}]'.format(\
+#             self.name, location, self.damage))
 
 
-class Marine(AttackUnit):
-    def __init__(self):
-        AttackUnit.__init__(self, '마린', 40, 1, 5)
+# class Marine(AttackUnit):
+#     def __init__(self):
+#         AttackUnit.__init__(self, '마린', 40, 1, 5)
 
 
-    def stimpack(self):
-        if self.hp >=10:  
-            self.hp-=10
-            self.damage+=5
-            self.speed+=1
-            print('{}이 스팀팩을 사용합니다 [체력 -10]'.format(self.name))
-        else:
-            print('체력 부족')
+#     def stimpack(self):
+#         if self.hp >=10:  
+#             self.hp-=10
+#             self.damage+=5
+#             self.speed+=1
+#             print('{}이 스팀팩을 사용합니다 [체력 -10]'.format(self.name))
+#         else:
+#             print('체력 부족')
 
 
-class tank(AttackUnit):
-    seize_developed = False
-    def __init__(self):
-        AttackUnit.__init__(self, '탱크', 150, 1, 35)
-        self.seizemode = False
+# class tank(AttackUnit):
+#     seize_developed = False
+#     def __init__(self):
+#         AttackUnit.__init__(self, '탱크', 150, 1, 35)
+#         self.seizemode = False
 
 
-    def seize_mode(self):
-        if tank.seize_developed == False:
-            return
+#     def seize_mode(self):
+#         if tank.seize_developed == False:
+#             return
 
-        if self.seizemode == False:
-            self.damage*=2
-            print('{} 시즈모드'.format(self.name))
-            self.seizemode = True
-        else:
-            self.damge/=2
-            print('{} 시즈모드 해제'.format(self.name))
+#         if self.seizemode == False:
+#             self.damage*=2
+#             print('{} 시즈모드'.format(self.name))
+#             self.seizemode = True
+#         else:
+#             self.damge/=2
+#             print('{} 시즈모드 해제'.format(self.name))
 
 
 
-class Flyable:
-    def __init__(self, flying_speed):
-        self.flying_speed = flying_speed
-        print('공중 유닛이 생성되었습니다\n')
+# class Flyable:
+#     def __init__(self, flying_speed):
+#         self.flying_speed = flying_speed
+#         print('공중 유닛이 생성되었습니다\n')
 
-    def fly(self, name, location):
-        print('{} : {}시 방향으로 날아갑니다. [속도 {}]'.format(name, location, self.flying_speed))
+#     def fly(self, name, location):
+#         print('{} : {}시 방향으로 날아갑니다. [속도 {}]'.format(name, location, self.flying_speed))
     
 
-class FlyableAttackUnit(AttackUnit, Flyable):
-    def __init__(self, name, hp, damage, flying_speed):
-        AttackUnit.__init__(self, name, hp, 0, damage)
-        Flyable.__init__(self, flying_speed)
+# class FlyableAttackUnit(AttackUnit, Flyable):
+#     def __init__(self, name, hp, damage, flying_speed):
+#         AttackUnit.__init__(self, name, hp, 0, damage)
+#         Flyable.__init__(self, flying_speed)
 
-    # 메소드 오버라이딩
-    def move(self, location):
-        # print('[공중 유닛 이동]')
-        self.fly(self.name, location)
+#     # 메소드 오버라이딩
+#     def move(self, location):
+#         # print('[공중 유닛 이동]')
+#         self.fly(self.name, location)
 
  
-class wraith(FlyableAttackUnit):
+# class wraith(FlyableAttackUnit):
 
-    def __init__(self):
-        FlyableAttackUnit.__init__(self, '레이스', 80, 20, 5)
-        self.clocked = False
+#     def __init__(self):
+#         FlyableAttackUnit.__init__(self, '레이스', 80, 20, 5)
+#         self.clocked = False
 
-    def clocking(self):
+#     def clocking(self):
 
-        if self.clocked == False:
-            print('{} clocking'.format(self.name))
-            self.clocked = True
-        else:
-            print('{} clocking 해제'.format(self.name))
-            self.clocked = False
+#         if self.clocked == False:
+#             print('{} clocking'.format(self.name))
+#             self.clocked = True
+#         else:
+#             print('{} clocking 해제'.format(self.name))
+#             self.clocked = False
 
-def game_start():
-    print('[alarm] New Game Start\n')
+# def game_start():
+#     print('[alarm] New Game Start\n')
 
-def game_over():
-    print('\nPlayer 1 : gg')
-    print('[Player 1] 이 방을 나갔습니다')
+# def game_over():
+#     print('\nPlayer 1 : gg')
+#     print('[Player 1] 이 방을 나갔습니다')
 
-###############
+# ###############
 
-game_start()
-
-
-m1 = Marine()
-m2 = Marine()
-m3 = Marine()
-
-t1 = tank()
-t2 = tank()
-
-w1 = wraith()
+# game_start()
 
 
-attack_units = []
-attack_units.append(m1)
-attack_units.append(m2)
-attack_units.append(m3)
-attack_units.append(t1)
-attack_units.append(t2)
-attack_units.append(w1)
+# m1 = Marine()
+# m2 = Marine()
+# m3 = Marine()
 
-# 전군 이동
-for unit in attack_units:
-    unit.move(3)
+# t1 = tank()
+# t2 = tank()
 
-# 탱크 시즈 모드 개발
-tank.seize_developed = True
-print('\ntank seize mode developed\n')
+# w1 = wraith()
 
-# 공격 모드 준비 (마린 스팀팩, 탱크 시즈 모드, 레이스 클로킹)
-for unit in attack_units:
-    if isinstance(unit, Marine):
-        unit.stimpack()
-    elif isinstance(unit, tank):
-        unit.seize_mode()
-    elif isinstance(unit, wraith):
-        unit.clocking()
+
+# attack_units = []
+# attack_units.append(m1)
+# attack_units.append(m2)
+# attack_units.append(m3)
+# attack_units.append(t1)
+# attack_units.append(t2)
+# attack_units.append(w1)
+
+# # 전군 이동
+# for unit in attack_units:
+#     unit.move(3)
+
+# # 탱크 시즈 모드 개발
+# tank.seize_developed = True
+# print('\ntank seize mode developed\n')
+
+# # 공격 모드 준비 (마린 스팀팩, 탱크 시즈 모드, 레이스 클로킹)
+# for unit in attack_units:
+#     if isinstance(unit, Marine):
+#         unit.stimpack()
+#     elif isinstance(unit, tank):
+#         unit.seize_mode()
+#     elif isinstance(unit, wraith):
+#         unit.clocking()
     
-# 전군 공격
-for unit in attack_units:
-    unit.attack(3)
+# # 전군 공격
+# for unit in attack_units:
+#     unit.attack(3)
 
-# 싸우는 중 피해를 입는다.
-from random import *
+# # 싸우는 중 피해를 입는다.
+# from random import *
 
-for unit in attack_units:
-    unit.damaged(randint(5,21))
-
-
-# game over
-game_over()
+# for unit in attack_units:
+#     unit.damaged(randint(5,21))
 
 
+# # game over
+# game_over()
+
+'''Quiz 8 : 주어진 코드를 활용하여 부동산 프로그램을 작성하시오,
+
+(출력 예재)
+총 3대의 매물이 있습니다.
+강남 아파트 매매 10억 2010년
+마포 오피스텔 전세 5억 2007년
+송파 빌라 월세 500/50 2000년
+
+[코드]
+class House:
+    # 매물 초기화
+    def __init__(self, location, house_type, deal_type, prince, completion_year):
+        pass
+    
+    # 매물 정보 표시
+    def show_detail(self):
+        pass
+
+'''
