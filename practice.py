@@ -633,7 +633,7 @@ class fourCal:
         result = self.first / self.second
         return result
 
-
+# 상속
 class MorefourCal(fourCal):
     def pow(self):
         result = self.first ** self.second
@@ -648,15 +648,172 @@ class safefourCal(fourCal):
             return self.first / self.second
 a = safefourCal(4,0)
 
-print(a.div())
+
+#########################
+
+class Unit:
+    def __init__(self, name, hp, speed):
+        self.name = name
+        self.hp = hp
+        self.speed = speed
+        print('{} 유닛이 생성 되었습니다.'.format(self.name))
+        print('체력은 {}입니다.'.format(self.hp))
 
 
-car =	{
-  "brand": "Ford",
-  "model": "Mustang",
-  "year": 1964
-}
-print(car['model'])
+    def move(self, location):
+        # print('[지상 유닛이 이동]')
+        print('{} : {}시 방향으로 이동합니다 [속도 {}]'.format(self.name, location, self.speed))
+   
+    def damaged(self, damage):
+        print('{} : {} 데미지를 입었습니다.'.format(self.name, damage))
+        self.hp-=damage
+        print('{} : 현재 체력은 {}입니다\n'.format(self.name, self.hp))
+        if self.hp <= 0:
+            print('{} : 파괴됩니다\n'.format(self.name))
 
+
+class AttackUnit(Unit):
+    def __init__(self, name, hp, speed, damage):
+        Unit.__init__(self, name, hp, speed) # name, hp는 상속받기 위해
+        self.damage = damage
+        print('데미지은 {}입니다\n'.format(self.damage))
+    
+
+    def attack(self, location):
+        print('{} : {}시 방향으로 공격합니다. [공격력 {}]'.format(\
+            self.name, location, self.damage))
+
+
+class Marine(AttackUnit):
+    def __init__(self):
+        AttackUnit.__init__(self, '마린', 40, 1, 5)
+
+
+    def stimpack(self):
+        if self.hp >=10:  
+            self.hp-=10
+            self.damage+=5
+            self.speed+=1
+            print('{}이 스팀팩을 사용합니다 [체력 -10]'.format(self.name))
+        else:
+            print('체력 부족')
+
+
+class tank(AttackUnit):
+    seize_developed = False
+    def __init__(self):
+        AttackUnit.__init__(self, '탱크', 150, 1, 35)
+        self.seizemode = False
+
+
+    def seize_mode(self):
+        if tank.seize_developed == False:
+            return
+
+        if self.seizemode == False:
+            self.damage*=2
+            print('{} 시즈모드'.format(self.name))
+            self.seizemode = True
+        else:
+            self.damge/=2
+            print('{} 시즈모드 해제'.format(self.name))
+
+
+
+class Flyable:
+    def __init__(self, flying_speed):
+        self.flying_speed = flying_speed
+        print('공중 유닛이 생성되었습니다\n')
+
+    def fly(self, name, location):
+        print('{} : {}시 방향으로 날아갑니다. [속도 {}]'.format(name, location, self.flying_speed))
+    
+
+class FlyableAttackUnit(AttackUnit, Flyable):
+    def __init__(self, name, hp, damage, flying_speed):
+        AttackUnit.__init__(self, name, hp, 0, damage)
+        Flyable.__init__(self, flying_speed)
+
+    # 메소드 오버라이딩
+    def move(self, location):
+        # print('[공중 유닛 이동]')
+        self.fly(self.name, location)
+
+ 
+class wraith(FlyableAttackUnit):
+
+    def __init__(self):
+        FlyableAttackUnit.__init__(self, '레이스', 80, 20, 5)
+        self.clocked = False
+
+    def clocking(self):
+
+        if self.clocked == False:
+            print('{} clocking'.format(self.name))
+            self.clocked = True
+        else:
+            print('{} clocking 해제'.format(self.name))
+            self.clocked = False
+
+def game_start():
+    print('[alarm] New Game Start\n')
+
+def game_over():
+    print('\nPlayer 1 : gg')
+    print('[Player 1] 이 방을 나갔습니다')
+
+###############
+
+game_start()
+
+
+m1 = Marine()
+m2 = Marine()
+m3 = Marine()
+
+t1 = tank()
+t2 = tank()
+
+w1 = wraith()
+
+
+attack_units = []
+attack_units.append(m1)
+attack_units.append(m2)
+attack_units.append(m3)
+attack_units.append(t1)
+attack_units.append(t2)
+attack_units.append(w1)
+
+# 전군 이동
+for unit in attack_units:
+    unit.move(3)
+
+# 탱크 시즈 모드 개발
+tank.seize_developed = True
+print('\ntank seize mode developed\n')
+
+# 공격 모드 준비 (마린 스팀팩, 탱크 시즈 모드, 레이스 클로킹)
+for unit in attack_units:
+    if isinstance(unit, Marine):
+        unit.stimpack()
+    elif isinstance(unit, tank):
+        unit.seize_mode()
+    elif isinstance(unit, wraith):
+        unit.clocking()
+    
+# 전군 공격
+for unit in attack_units:
+    unit.attack(3)
+
+# 싸우는 중 피해를 입는다.
+from random import *
+
+for unit in attack_units:
+    unit.damaged(randint(5,21))
+
+
+# game over
+game_over()
 
 
