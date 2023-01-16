@@ -816,51 +816,134 @@
 # # game over
 # game_over()
 
-'''Quiz 8 : 주어진 코드를 활용하여 부동산 프로그램을 작성하시오,
+# '''Quiz 8 : 주어진 코드를 활용하여 부동산 프로그램을 작성하시오,
 
-(출력 예재)
-총 3대의 매물이 있습니다.
-강남 아파트 매매 10억 2010년
-마포 오피스텔 전세 5억 2007년
-송파 빌라 월세 500/50 2000년
+# (출력 예재)
+# 총 3대의 매물이 있습니다.
+# 강남 아파트 매매 10억 2010년
+# 마포 오피스텔 전세 5억 2007년
+# 송파 빌라 월세 500/50 2000년
 
-[코드]
-class House:
-    # 매물 초기화
-    def __init__(self, location, house_type, deal_type, prince, completion_year):
-        pass
+# [코드]
+# class House:
+#     # 매물 초기화
+#     def __init__(self, location, house_type, deal_type, prince, completion_year):
+#         pass
     
-    # 매물 정보 표시
-    def show_detail(self):
-        pass
+#     # 매물 정보 표시
+#     def show_detail(self):
+#         pass
+
+# '''
+
+# # Q 붕어빵 개수를 알 수 있는 방법이 있나?
+
+# class House:
+#     def __init__(self, location, house_type, deal_type, price, completion_year):
+#         self.location = location
+#         self.house_type = house_type
+#         self.deal_type = deal_type
+#         self.price = price
+#         self.completion_year = completion_year
+
+#     def show_detail(self):
+#         print('self.location, self.house_type, self.deal_type, self.price, self.completion_year')
+        
+# h1 = House('강남', '아파트', '매매', '10억', '2010년')
+# h2 = House('마포', '오피스텔', '전세', '5억', '2007년')
+# h3 = House('송파', '빌라', '월세', '50/500', '2000년')
+
+# house_list = []
+
+# house_list.append(h1)
+# house_list.append(h2)
+# house_list.append(h3)
+
+# print('총 {}대의 매물이 있습니다'.format(len(house_list)))
+# for house in house_list:
+#     house.show_detail()
+    
+
+# # [예외 처리]
+# # try:
+# # except ErrorName as err:
+# try:
+#     print('[나누기 전용 계산기]')
+#     num1 = int(input('첫 번째 숫자를 입력하세요 : '))
+#     num2 = int(input('두 번째 숫자를 입력하세요 : '))
+#     num3 = num1 / num2
+#     print('{} / {} = {:0.3f}'.format(num1, num2, num3))
+# except ValueError as err:
+#     print(err , " : 숫자를 입력하세요")
+# except ZeroDivisionError as err:
+#     print(err, ' : 0으로 나눌 수 없습니다')
+# except Exception as err:    # 모든 에러를 커버 할 수 있다.
+#     print(err, ' : 알 수 없는 에러입니다 [고객센터 : 033-0333-0930]')
+ 
+# # [에러 발생 시키기] : 특정 조건을 설정하여 필요에 의해 에러를 발생시킴
+
+# class Pang(Exception):  # 사용자가 직접 에러를 정의할 수 있다! 이건 에러라기보다는 사용자 정의 북마크인가
+#     def __init__(self, msg):
+#         self.msg = msg
+#     def __str__(self):
+#         return self.msg
+
+# try:
+#     print('한 자리 수 나눗셈 계산기')
+#     num1 = int(input('첫 번째 숫자를 입력하세요 : '))
+#     num2 = int(input('두 번째 숫자를 입력하세요 : '))
+#     if num1>=10 and num2>=10:
+#         raise Pang('입력값 : {},{}'.format(num1, num2)) 
+#     if num1 >=10 or num2 >=10:
+#         raise ZeroDivisionError # 특정 에러를 직접 발생시킬 수 있다니! 마치 북마크처럼 에러들을 except에서 한 번에 관리할 수 있겠다!
+#     print('{} / {} = {}'.format(num1, num2, num1/num2))
+# except ZeroDivisionError:
+#     print('빵꾸똥꾸야')
+# except ValueError:
+#     print('다시 입력하세요')
+# except Pang as err:
+#     print(err)
+#     print('에라이 빵꾸똥꾸야')
+# finally:    #마침내...! 에러가 발생하든 말든 실행하는 구문, 정의하지 않은 에러가 발생하더라도 상관없이 무조건 실행한다.
+#     print('계산기 뿌셔')
+
 
 '''
+Quiz 4
+동네에 항상 대기 손님이 있는 치킨집이 있다
+손님의 대기 시간을 줄이고자 자동 주문 시스템을 도입하고자 한다
+시스템 코드를 확인하고 적절한 예외처리 구문을 넣으시오
 
-# Q 붕어빵 개수를 알 수 있는 방법이 있나?
+조건1 : 1보다 작거나 숫자가 아닌 입력값이 들어올 때는 ValueError로 처리
+        출력 메시지 : '잘못된 값을 입력하였습니다.'
+조건2 : 대기 손님이 주문할 수 있는 총 치킨량은 10마리로 한정
+        치킨 소진 시 사용자 정의 에러 [SoldOutError]를 발생시키고 프로그램을 종료
+        출력 메시지 : '재고가 소진되어 더 이상 주문을 받지 않습니다'.  
+'''
+# [코드]
+chicken = 10
+waiting = 1     #홀은 이미 만석, 대기번호 1부터 시작
 
-class House:
-    def __init__(self, location, house_type, deal_type, price, completion_year):
-        self.location = location
-        self.house_type = house_type
-        self.deal_type = deal_type
-        self.price = price
-        self.completion_year = completion_year
+class SoldOutError(Exception):
+    pass
 
-    def show_detail(self):
-        print('self.location, self.house_type, self.deal_type, self.price, self.completion_year')
-        
-h1 = House('강남', '아파트', '매매', '10억', '2010년')
-h2 = House('마포', '오피스텔', '전세', '5억', '2007년')
-h3 = House('송파', '빌라', '월세', '50/500', '2000년')
-
-house_list = []
-
-house_list.append(h1)
-house_list.append(h2)
-house_list.append(h3)
-
-print('총 {}대의 매물이 있습니다'.format(len(house_list)))
-for house in house_list:
-    house.show_detail()
-    
-# [예외 처리]
+while True:
+    try:
+        print('[남은 치킨 : {}]'.format(chicken))
+        order = int(input('치킨 몇 마리 주문하시겠습니까? : '))
+        if order > chicken:     # 남은 치킨보다 주문량이 많을 때
+            print('재료가 부족합니다')
+        elif order<1:
+            raise ValueError
+        else:
+            print('[대기번호 {}] {}마리 주문이 완료되었습니다'.format(\
+                waiting, order))
+            waiting+=1
+            chicken-=order
+            if chicken == 0:
+                raise SoldOutError
+    except ValueError:
+        print('잘못된 값을 입력하였습니다.')
+    except SoldOutError:
+        print('재고가 소진되어 더 이상 주문을 받지 않습니다.')
+        break
