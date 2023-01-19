@@ -949,13 +949,13 @@
 #         break
 
 # # [모듈]
-# from theatre import price
-# price(4,4,4)
+from theatre import price
+price(4,4,4)
 
 # [패키지] : 모듈의 집합
 
 
 
-# from bs4 import BeautifulSoup 
-# soup = BeautifulSoup("<p>Some<b>bad<i>HTML")
-# print(soup.prettify())
+from bs4 import BeautifulSoup
+soup = BeautifulSoup("<p>Some<b>bad<i>HTML")
+print(soup.prettify())
