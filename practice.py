@@ -50,9 +50,11 @@
 # print(randint(1,45)) # [1,45] 랜덤한 값 생성
 # print(randint(1,45)) # [1,45] 랜덤한 값 생성
 
-# Quiz #2
+# # Quiz 2
 # off_date = randint(4,28)
 # print('오프라인 스터디 모임 날짜는 매월',str(off_date)+'일로 선정되었습니다')
+
+
 # python = 'Python is Amazing'
 
 # print(python.lower())  # 소문자로 변환
@@ -106,12 +108,12 @@
 # # \b : backspace
 # # \t : tab
 
-# print('엔\n터')
-# print('\'따옴표 출력\'')
-# print('\\ *^^* /')
-# print('black pink\r1234567890')
-# print('backk\b spacee\b') # 두번은 안되나...?
-# print('t\ta\tb')
+print('엔\n터')
+print('\'따옴표 출력\'')
+print('\\ *^^* /')
+print('black pink\r1234567890')
+print('backk\b spacee\b') # 두번은 안되나...?
+print('t\ta\tb')
 
 # # quiz3
 
@@ -949,13 +951,13 @@
 #         break
 
 # # [모듈]
-from theatre import price
-price(4,4,4)
+# from theatre import price
+# price(4,4,4)
 
-# [패키지] : 모듈의 집합
+# # [패키지] : 모듈의 집합
 
 
 
-from bs4 import BeautifulSoup
-soup = BeautifulSoup("<p>Some<b>bad<i>HTML")
-print(soup.prettify())
+# from bs4 import BeautifulSoup
+# soup = BeautifulSoup("<p>Some<b>bad<i>HTML")
+# print(soup.prettify())

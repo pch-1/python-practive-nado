@@ -3,7 +3,7 @@
 N=int(input('자연수를 입력하세요. : '))
 b=[[1]]
 
-for i in range(N):
+for i in range(N-1):
     next_num=b[0][0]
     cnt=0
     list_next=[]
